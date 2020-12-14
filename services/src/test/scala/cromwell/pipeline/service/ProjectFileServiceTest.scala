@@ -7,7 +7,8 @@ import cromwell.pipeline.datastorage.dao.repository.utils.TestProjectUtils
 import cromwell.pipeline.datastorage.dto.{ ProjectFile, ProjectFileContent, SuccessResponseMessage, ValidationError }
 import cromwell.pipeline.womtool.WomTool
 import org.mockito.Mockito.when
-import org.scalatest.{ AsyncWordSpec, Matchers }
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AsyncWordSpec
 import org.scalatestplus.mockito.MockitoSugar
 import wom.executable.WomBundle
 

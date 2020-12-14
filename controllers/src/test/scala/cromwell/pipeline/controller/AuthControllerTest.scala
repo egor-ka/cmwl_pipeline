@@ -15,11 +15,13 @@ import cromwell.pipeline.service.AuthorizationException.{
   IncorrectPasswordException
 }
 import org.scalamock.scalatest.MockFactory
-import org.scalatest.{ Assertion, Matchers, WordSpec }
+import org.scalatest.Assertion
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
 import scala.concurrent.Future
 
-class AuthControllerTest extends WordSpec with Matchers with MockFactory with ScalatestRouteTest {
+class AuthControllerTest extends AnyWordSpec with Matchers with MockFactory with ScalatestRouteTest {
 
   private val authService = stub[AuthService]
   private val authController = new AuthController(authService)

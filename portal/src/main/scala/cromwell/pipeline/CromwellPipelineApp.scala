@@ -4,8 +4,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.Directives._
-import akka.http.scaladsl.server.{ RejectionHandler, Route, ValidationRejection }
-import akka.stream.ActorMaterializer
+import akka.http.scaladsl.server.{RejectionHandler, Route, ValidationRejection}
 import cromwell.pipeline.auth.token.MissingAccessTokenRejection
 import cromwell.pipeline.datastorage.dto.auth.AccessTokenContent
 import org.slf4j.LoggerFactory
@@ -15,7 +14,6 @@ import scala.concurrent.ExecutionContextExecutor
 object CromwellPipelineApp extends App {
 
   implicit val system: ActorSystem = ActorSystem("cromwell-pipeline")
-  implicit val materializer: ActorMaterializer = ActorMaterializer()
   implicit val executionContext: ExecutionContextExecutor = system.dispatcher
 
   val log = LoggerFactory.getLogger(CromwellPipelineApp.getClass)
@@ -49,5 +47,5 @@ object CromwellPipelineApp extends App {
   }
 
   log.info(s"Server online at http://${webServiceConfig.interface}:${webServiceConfig.port}/")
-  Http().bindAndHandle(route, webServiceConfig.interface, webServiceConfig.port)
+  Http().newServerAt(webServiceConfig.interface, webServiceConfig.port).bindFlow(route)
 }

@@ -8,15 +8,16 @@ import com.typesafe.config.Config
 import cromwell.pipeline.ApplicationComponents
 import cromwell.pipeline.controller.AuthController._
 import cromwell.pipeline.datastorage.dao.repository.utils.TestUserUtils
+import cromwell.pipeline.datastorage.dao.repository.utils.TestUserUtils._
 import cromwell.pipeline.datastorage.dto.User
+import cromwell.pipeline.service.AuthService
 import cromwell.pipeline.utils.TestContainersUtils
 import org.scalatest.compatible.Assertion
 import org.scalatest.concurrent.ScalaFutures._
-import org.scalatest.{ Matchers, WordSpec }
-import TestUserUtils._
-import cromwell.pipeline.service.AuthService
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 
-class AuthControllerItTest extends WordSpec with Matchers with ScalatestRouteTest with ForAllTestContainer {
+class AuthControllerItTest extends AnyWordSpec with Matchers with ScalatestRouteTest with ForAllTestContainer {
 
   override val container: PostgreSQLContainer = TestContainersUtils.getPostgreSQLContainer()
   private implicit lazy val config: Config = TestContainersUtils.getConfigForPgContainer(container)

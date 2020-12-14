@@ -5,7 +5,8 @@ import cromwell.pipeline.datastorage.dao.repository.utils.{ TestRunUtils, TestUs
 import cromwell.pipeline.datastorage.dto.{ Done, Run, RunCreateRequest, RunUpdateRequest }
 import org.mockito.Matchers.any
 import org.mockito.Mockito.when
-import org.scalatest.{ AsyncWordSpec, Matchers }
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AsyncWordSpec
 import org.scalatestplus.mockito.MockitoSugar
 
 import scala.concurrent.Future

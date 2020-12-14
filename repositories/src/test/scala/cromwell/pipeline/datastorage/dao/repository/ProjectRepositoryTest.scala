@@ -6,7 +6,9 @@ import cromwell.pipeline.datastorage.DatastorageModule
 import cromwell.pipeline.datastorage.dao.repository.utils.{ TestProjectUtils, TestUserUtils }
 import cromwell.pipeline.datastorage.dto.{ Project, User }
 import cromwell.pipeline.utils.{ ApplicationConfig, TestContainersUtils }
-import org.scalatest.{ AsyncWordSpec, BeforeAndAfterAll, Matchers }
+import org.scalatest.BeforeAndAfterAll
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AsyncWordSpec
 
 class ProjectRepositoryTest extends AsyncWordSpec with Matchers with BeforeAndAfterAll with ForAllTestContainer {
 

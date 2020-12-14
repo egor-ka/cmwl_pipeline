@@ -6,7 +6,9 @@ import cromwell.pipeline.datastorage.dto.{ Project, ProjectAdditionRequest, Proj
 import cromwell.pipeline.model.wrapper.UserId
 import org.mockito.Matchers.any
 import org.mockito.Mockito.when
-import org.scalatest.{ AsyncWordSpec, BeforeAndAfterAll, Matchers }
+import org.scalatest.BeforeAndAfterAll
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AsyncWordSpec
 import org.scalatestplus.mockito.MockitoSugar
 
 import scala.concurrent.{ ExecutionContext, Future }

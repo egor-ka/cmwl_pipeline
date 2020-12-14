@@ -3,10 +3,11 @@ package cromwell.pipeline.womtool
 import cats.data.NonEmptyList
 import cromwell.languages.util.ImportResolver.{ DirectoryResolver, HttpResolver }
 import org.scalatest.EitherValues._
-import org.scalatest.{ Matchers, WordSpec }
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 import wom.executable.WomBundle
 
-class WomToolTest extends WordSpec with Matchers {
+class WomToolTest extends AnyWordSpec with Matchers {
 
   private lazy val importResolvers = DirectoryResolver.localFilesystemResolvers(None) :+ HttpResolver(relativeTo = None)
 

@@ -17,14 +17,15 @@ import cromwell.pipeline.service.AuthorizationException.{
 import cromwell.pipeline.utils.{ AuthConfig, ExpirationTimeInSeconds }
 import org.scalamock.scalatest.MockFactory
 import org.scalatest.concurrent.ScalaFutures.whenReady
-import org.scalatest.{ Matchers, WordSpec }
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 import pdi.jwt.algorithms.JwtHmacAlgorithm
 import pdi.jwt.{ Jwt, JwtAlgorithm, JwtClaim }
 import play.api.libs.json.Json
 
 import scala.concurrent.{ ExecutionContext, Future }
 
-class AuthServiceTest extends WordSpec with Matchers with MockFactory {
+class AuthServiceTest extends AnyWordSpec with Matchers with MockFactory {
 
   implicit val executionContext: ExecutionContext = scala.concurrent.ExecutionContext.Implicits.global
 

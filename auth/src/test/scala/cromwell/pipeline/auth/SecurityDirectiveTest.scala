@@ -12,12 +12,13 @@ import cromwell.pipeline.auth.token.MissingAccessTokenRejection
 import cromwell.pipeline.datastorage.dto.auth.{ AccessTokenContent, AuthContent }
 import cromwell.pipeline.model.wrapper.UserId
 import cromwell.pipeline.utils.{ AuthConfig, ExpirationTimeInSeconds }
-import org.scalatest.{ Matchers, WordSpec }
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 import pdi.jwt.algorithms.JwtHmacAlgorithm
 import pdi.jwt.{ Jwt, JwtAlgorithm, JwtClaim }
 import play.api.libs.json.Json
 
-class SecurityDirectiveTest extends WordSpec with Matchers with ScalatestRouteTest {
+class SecurityDirectiveTest extends AnyWordSpec with Matchers with ScalatestRouteTest {
 
   private val authConfig = AuthConfig(
     secretKey = "secretKey",

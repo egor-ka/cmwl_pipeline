@@ -3,21 +3,22 @@ package cromwell.pipeline.utils.json
 import cromwell.pipeline.utils.json.AdtJsonFormatter._
 import cromwell.pipeline.utils.json.DummyTraitFormatter._
 import cromwell.pipeline.utils.json.DummyTraitGen._
-import org.scalatest.{ Matchers, WordSpec }
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 import play.api.libs.json.{ JsSuccess, Json, OFormat }
 
-class AdtJsonFormatterTest extends WordSpec with ScalaCheckDrivenPropertyChecks with Matchers {
+class AdtJsonFormatterTest extends AnyWordSpec with ScalaCheckDrivenPropertyChecks with Matchers {
 
   "AdtJsonFormatter" should {
 
     "write instance" when {
       "this is an instance of a class" in {
-        val dummyImplA = DummyImplA("StringField", Some(1))
+        val dummyImplA: DummyTrait = DummyImplA("StringField", Some(1))
         noException should be thrownBy Json.toJson(dummyImplA)
       }
       "this is a singleton object" in {
-        noException should be thrownBy Json.toJson(DummyImplObj)
+        noException should be thrownBy Json.toJson(DummyImplObj: DummyTrait)
       }
     }
 

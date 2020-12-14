@@ -5,12 +5,14 @@ import java.time.Instant
 import cromwell.pipeline.datastorage.dto.auth.{ AccessTokenContent, AuthResponse, RefreshTokenContent }
 import cromwell.pipeline.model.wrapper.UserId
 import cromwell.pipeline.utils.{ AuthConfig, ExpirationTimeInSeconds }
-import org.scalatest.{ Assertion, Matchers, WordSpec }
-import pdi.jwt.{ Jwt, JwtAlgorithm }
+import org.scalatest.Assertion
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpec
 import pdi.jwt.algorithms.JwtHmacAlgorithm
+import pdi.jwt.{ Jwt, JwtAlgorithm }
 import play.api.libs.json.Json
 
-class AuthUtilsTest extends WordSpec with Matchers {
+class AuthUtilsTest extends AnyWordSpec with Matchers {
 
   private val authConfig = AuthConfig(
     secretKey = "secretKey",

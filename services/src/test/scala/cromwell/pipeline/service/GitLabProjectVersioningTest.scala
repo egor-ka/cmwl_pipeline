@@ -11,7 +11,8 @@ import cromwell.pipeline.utils.{ AkkaTestSources, ApplicationConfig, GitLabConfi
 import org.mockito.Mockito.when
 import org.mockito.{ Matchers => MockitoMatchers }
 import org.scalatest.concurrent.ScalaFutures
-import org.scalatest.{ AsyncWordSpec, Matchers }
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AsyncWordSpec
 import org.scalatestplus.mockito.MockitoSugar
 import play.api.libs.json.Reads
 
@@ -65,7 +66,11 @@ class GitLabProjectVersioningTest
 
         when(request(postProject)).thenReturn(
           Future.successful(
-            Response[RepositoryId](HttpStatusCodes.Created, SuccessResponseBody[RepositoryId](repositoryId), EmptyHeaders)
+            Response[RepositoryId](
+              HttpStatusCodes.Created,
+              SuccessResponseBody[RepositoryId](repositoryId),
+              EmptyHeaders
+            )
           )
         )
 

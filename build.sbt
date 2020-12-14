@@ -89,7 +89,7 @@ lazy val utils =
   (project in file("utils"))
     .configs(IntegrationTest)
     .settings(
-      libraryDependencies ++= (jsonDependencies ++ testContainers ++ coreTestDependencies ++ dbDependencies) :+ configHokon :+ cats :+ playFunctional :+ pegdown,
+      libraryDependencies ++= (jsonDependencies ++ testContainers ++ coreTestDependencies ++ dbDependencies ++ akkaDependencies) :+ configHokon :+ cats :+ playFunctional :+ pegdown,
       commonSettings
     )
     .dependsOn(model)

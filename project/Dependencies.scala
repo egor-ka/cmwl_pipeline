@@ -3,31 +3,31 @@ import sbt._
 object Dependencies {
 
   object Version {
-    val akka = "2.5.25"
-    val akkaHttp = "10.1.10"
-    val slick = "3.3.2"
-    val slickPg = "0.18.0"
-    val hikariCP = "3.3.1"
-    val playJson = "2.7.4"
-    val akkaHttpJson = "1.29.1"
-    val jwtCore = "4.1.0"
-    val cats = "2.0.0"
-    val scalaCheck = "1.14.0"
+    val akka = "2.6.8"
+    val akkaHttp = "10.2.0"
+    val slick = "3.3.3"
+    val slickPg = "0.19.4"
+    val hikariCP = "3.3.3"
+    val playJson = "2.9.1"
+    val akkaHttpJson = "1.35.2"
+    val jwtCore = "4.2.0"
+    val cats = "2.3.0"
+    val scalaCheck = "1.14.1"
     val mockito = "1.10.19"
-    val scalaTest = "3.0.8"
-    val scalaMock = "4.4.0"
-    val tcCore = "0.34.0"
-    val tcPostgres = "1.12.2"
-    val yaml = "1.23"
-    val liquibase = "3.8.6"
-    val postgresql = "42.2.8"
+    val scalaTest = "3.2.2"
+    val scalaMock = "5.1.0"
+    val tcCore = "0.38.7"
+    val tcPostgres = "1.15.0"
+    val yaml = "1.27"
+    val liquibase = "4.2.1"
+    val postgresql = "42.2.18"
     val womtool = "48"
     val logback = "1.2.3"
     val pegdown = "1.6.0"
-    val wireMock = "2.26.3"
-    val sl4j = "1.7.28"
-    val mongo = "2.9.0"
-    val mongoCore = "3.12.2"
+    val wireMock = "2.27.2"
+    val sl4j = "1.7.30"
+    val mongo = "4.1.1"
+    val mongoCore = "4.1.1"
   }
 
   val configHokon = "com.typesafe" % "config" % "1.3.3"
@@ -50,6 +50,9 @@ object Dependencies {
   val akkaHttpTestKit = "com.typesafe.akka" %% "akka-http-testkit" % Version.akkaHttp % "test,it"
   val scalaCheck = "org.scalacheck" %% "scalacheck" % Version.scalaCheck % "test,it"
   val scalaTest = "org.scalatest" %% "scalatest" % Version.scalaTest % "test, it"
+  val scalaTestPlus = "org.scalatestplus" %% "scalacheck-1-14" % "3.2.2.0" % "test"
+  val scalaTestPlusMockito = "org.scalatestplus" %% "mockito-3-4" % "3.2.2.0" % "test"
+  val scalaTestWordSpec = "org.scalatest" %% "scalatest-wordspec" % Version.scalaTest % "test, it"
   val mockito = "org.mockito" % "mockito-all" % Version.mockito % Test
   val tcCore = "com.dimafeng" %% "testcontainers-scala" % Version.tcCore % Test
   val tcPostgres = "org.testcontainers" % "postgresql" % Version.tcPostgres % Test
@@ -72,7 +75,7 @@ object Dependencies {
   lazy val jsonDependencies = Seq(playJson, akkaHttpJson, jwtCore)
   lazy val dbDependencies = Seq(slick, slickPg, hikariCP, postgresql, liquibase, yaml) ++ mongoDependencies
   lazy val coreTestDependencies =
-    Seq(mockito, scalaCheck, scalaTest, scalaMock)
+    Seq(mockito, scalaCheck, scalaTest, scalaMock, scalaTestWordSpec, scalaTestPlus, scalaTestPlusMockito)
   lazy val allTestDependencies =
     coreTestDependencies ++ Seq(akkaTestKit, akkaHttpTestKit, logback, wireMock)
   lazy val testContainers = Seq(tcCore, tcPostgres)
